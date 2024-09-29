@@ -9,11 +9,11 @@ import { Board } from './board';
     const viewport = new Viewport({
       screenWidth: window.innerWidth,
       screenHeight: window.innerHeight,
-      worldWidth: 1000,
-      worldHeight: 1000,
+      worldWidth: 100,
+      worldHeight: 100,
 
       events: app.renderer.events
-    })
+    });
 
     gameContainer.position.set(app.screen.width / 2, app.screen.height / 2);
 
@@ -24,8 +24,14 @@ import { Board } from './board';
       .drag()
       .pinch()
       .wheel()
+      .clampZoom({
+        minWidth: 1000,
+        minHeight: 300,
+        maxWidth: 3000,
+        maxHeight: 3000
+      });
 
-    viewport.addChild(gameContainer)
+    viewport.addChild(gameContainer);
 
     app.ticker.add(() => {
       // On each frame
@@ -35,7 +41,7 @@ import { Board } from './board';
 async function setup(): Promise<Application> {
     const app = new Application();
     
-    globalThis.__PIXI_APP__ = app
+    globalThis.__PIXI_APP__ = app;
 
     await app.init({
         resizeTo: window
