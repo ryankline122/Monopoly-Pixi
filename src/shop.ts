@@ -1,4 +1,5 @@
 import { ColorSource } from "pixi.js";
+import { Sides } from "./enums/sides";
 
 export type Shop = {
     id: number,
@@ -8,6 +9,7 @@ export type Shop = {
     y: number,
     height: number,
     width: number,
+    side: Sides,
     initialRent: number
     rentWithOneHouse: number
     rentWithTwoHouses: number

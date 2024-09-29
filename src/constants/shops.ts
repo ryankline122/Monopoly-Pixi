@@ -1,8 +1,10 @@
+import { Sides } from "../enums/sides";
 import { Shop } from "../shop";
 
 export const Shops: Shop[] = [
   {
     id: 0,
+    side: Sides.Top,
     name: "shop",
     color: "red",
     x: 128,
@@ -22,6 +24,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 0,
+    side: Sides.Bottom,
     name: "shop",
     color: "lightblue",
     x: 128,
@@ -41,6 +44,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 0,
+    side: Sides.Left,
     name: "shop",
     color: "orange",
     x: 0,
@@ -60,6 +64,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 0,
+    side: Sides.Right,
     name: "shop",
     color: "green",
     x: 776,
@@ -79,6 +84,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 1,
+    side: Sides.Top,
     name: "shop",
     color: "red",
     x: 200,
@@ -98,6 +104,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 1,
+    side: Sides.Bottom,
     name: "shop",
     color: "lightblue",
     x: 200,
@@ -117,6 +124,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 1,
+    side: Sides.Left,
     name: "shop",
     color: "orange",
     x: 0,
@@ -136,6 +144,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 1,
+    side: Sides.Right,
     name: "shop",
     color: "green",
     x: 776,
@@ -155,6 +164,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 2,
+    side: Sides.Top,
     name: "shop",
     color: "red",
     x: 272,
@@ -174,6 +184,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 2,
+    side: Sides.Bottom,
     name: "shop",
     color: "lightblue",
     x: 272,
@@ -193,6 +204,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 2,
+    side: Sides.Left,
     name: "shop",
     color: "orange",
     x: 0,
@@ -212,6 +224,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 2,
+    side: Sides.Right,
     name: "shop",
     color: "green",
     x: 776,
@@ -231,6 +244,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 3,
+    side: Sides.Top,
     name: "shop",
     color: "red",
     x: 344,
@@ -250,6 +264,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 3,
+    side: Sides.Bottom,
     name: "shop",
     color: "lightblue",
     x: 344,
@@ -269,6 +284,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 3,
+    side: Sides.Left,
     name: "shop",
     color: "orange",
     x: 0,
@@ -288,6 +304,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 3,
+    side: Sides.Right,
     name: "shop",
     color: "green",
     x: 776,
@@ -307,6 +324,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 4,
+    side: Sides.Top,
     name: "shop",
     color: "white",
     x: 416,
@@ -326,6 +344,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 4,
+    side: Sides.Bottom,
     name: "shop",
     color: "white",
     x: 416,
@@ -345,6 +364,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 4,
+    side: Sides.Left,
     name: "shop",
     color: "white",
     x: 0,
@@ -364,6 +384,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 4,
+    side: Sides.Right,
     name: "shop",
     color: "white",
     x: 776,
@@ -383,6 +404,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 5,
+    side: Sides.Top,
     name: "shop",
     color: "yellow",
     x: 488,
@@ -402,6 +424,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 5,
+    side: Sides.Bottom,
     name: "shop",
     color: "brown",
     x: 488,
@@ -421,6 +444,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 5,
+    side: Sides.Left,
     name: "shop",
     color: "pink",
     x: 0,
@@ -440,6 +464,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 5,
+    side: Sides.Right,
     name: "shop",
     color: "blue",
     x: 776,
@@ -459,6 +484,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 6,
+    side: Sides.Top,
     name: "shop",
     color: "yellow",
     x: 560,
@@ -478,6 +504,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 6,
+    side: Sides.Bottom,
     name: "shop",
     color: "brown",
     x: 560,
@@ -497,6 +524,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 6,
+    side: Sides.Left,
     name: "shop",
     color: "pink",
     x: 0,
@@ -516,6 +544,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 6,
+    side: Sides.Right,
     name: "shop",
     color: "blue",
     x: 776,
@@ -535,6 +564,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 7,
+    side: Sides.Top,
     name: "shop",
     color: "yellow",
     x: 632,
@@ -554,6 +584,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 7,
+    side: Sides.Bottom,
     name: "shop",
     color: "brown",
     x: 632,
@@ -573,6 +604,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 7,
+    side: Sides.Left,
     name: "shop",
     color: "pink",
     x: 0,
@@ -592,6 +624,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 7,
+    side: Sides.Right,
     name: "shop",
     color: "blue",
     x: 776,
@@ -611,6 +644,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 8,
+    side: Sides.Top,
     name: "shop",
     color: "yellow",
     x: 704,
@@ -630,6 +664,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 8,
+    side: Sides.Bottom,
     name: "shop",
     color: "brown",
     x: 704,
@@ -649,6 +684,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 8,
+    side: Sides.Left,
     name: "shop",
     color: "pink",
     x: 0,
@@ -668,6 +704,7 @@ export const Shops: Shop[] = [
   },
   {
     id: 8,
+    side: Sides.Right,
     name: "shop",
     color: "blue",
     x: 776,
