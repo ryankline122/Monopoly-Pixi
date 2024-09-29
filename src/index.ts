@@ -1,67 +1,39 @@
-import { Application, BitmapText } from 'pixi.js';
+import { Application, Container, Graphics } from 'pixi.js';
+import { Viewport } from 'pixi-viewport';
 
 (async () => {
     const app = await setup();
-    const helloWorld = addText("Hello world!", 32, 50, 50);
-    helloWorld.position.set(90, 80);
-    app.stage.addChild(helloWorld);
-  
-    const speed = 5; // Pixels per frame
-    let moveX = 0;
-    let moveY = 0;
-  
-    window.addEventListener('keydown', function(e) {
-      switch(e.key) {
-        case 'ArrowRight':
-          moveX = speed;
-          break;
-        case 'ArrowLeft':
-          moveX = -speed;
-          break;
-        case 'ArrowUp':
-          moveY = -speed;
-          break;
-        case 'ArrowDown':
-          moveY = speed;
-          break;
-      }
-    });
-  
-    window.addEventListener('keyup', function(e) {
-      switch(e.key) {
-        case 'ArrowRight':
-        case 'ArrowLeft':
-          moveX = 0;
-          break;
-        case 'ArrowUp':
-        case 'ArrowDown':
-          moveY = 0;
-          break;
-      }
-    });
-  
+    const gameContainer = new Container();
+    const board = createBoard();
+    const viewport = new Viewport({
+      screenWidth: window.innerWidth,
+      screenHeight: window.innerHeight,
+      worldWidth: 1000,
+      worldHeight: 1000,
+
+      events: app.renderer.events
+    })
+
+    gameContainer.position.set(app.screen.width / 2, app.screen.height / 2);
+
+    gameContainer.addChild(board);
+    // app.stage.addChild(gameContainer);
+    app.stage.addChild(viewport);
+
+    viewport
+      .drag()
+      .pinch()
+      .wheel()
+      .decelerate()
+
+    viewport.addChild(gameContainer)
+
     app.ticker.add(() => {
-      helloWorld.x += moveX;
-      helloWorld.y += moveY;
+      // On each frame
     });
-  })();
+})();
 
-function addText(text: string, size: number, x: number, y: number) {
-    const _text = new BitmapText({
-        text: text,
-        style: {
-            fontSize: size,
-            align: "left"
-        },
-    });
-
-    _text.x = x
-    _text.y = y
-
-    return _text;
-}
-
-async function setup () {
+async function setup(): Promise<Application> {
     const app = new Application();
     
     globalThis.__PIXI_APP__ = app
@@ -75,4 +47,16 @@ async function setup () {
     document.body.appendChild(app.canvas);
 
     return app;
+}
+
+function createBoard(): Graphics {
+    const board = new Graphics()
+      .rect(0, 0, 64, 64)
+      .fill({
+        color: 0xffffff
+      })
+    
+    board.pivot.set(board.width / 2, board.height / 2);
+
+    return board;
 }
