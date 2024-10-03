@@ -1,5 +1,5 @@
 import { Sides } from "../enums/sides";
-import { Space } from "../space";
+import { Space } from "../models/space";
 
 export const Spaces: Space[] = [
     {
@@ -402,4 +402,4 @@ export const Spaces: Space[] = [
       height: 72,
       width: 128,
     },
-  ];
+];

@@ -6,6 +6,7 @@
 * Run dev server: `npm run start`
 
 ## To-do:
-* Create an array containing all spaces in order so that players can "iterate" over the board
-* Add a player sprite and have it move to the appropriate space after rolling dice
-* Build out an api to store game state
+* Add a player sprite and have it move to the appropriate space after "rolling" dice (hard coded is fine for now)
+* Add multiple player sprites and prevent them from overlapping eachother on spaces
+* Add buttons for rolling dice, buying/selling/mortgaging properies
+* Build out an api to manage game state

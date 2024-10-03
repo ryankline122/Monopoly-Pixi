@@ -1,5 +1,5 @@
 import { ColorSource } from "pixi.js";
-import { Sides } from "./enums/sides";
+import { Sides } from "../enums/sides";
 
 export type Space = {
     index: number,

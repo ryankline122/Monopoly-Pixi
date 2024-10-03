@@ -1,6 +1,6 @@
 import { Container, Graphics } from "pixi.js";
 import { Sides } from "./enums/sides";
-import { Space } from "./space";
+import { Space } from "./models/space";
 import { Spaces } from "./constants/spaces";
 
 export class Board {
