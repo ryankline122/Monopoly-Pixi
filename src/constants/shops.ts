@@ -3,7 +3,7 @@ import { Shop } from "../shop";
 
 export const Shops: Shop[] = [
   {
-    id: 0,
+    id: 21,
     side: Sides.Top,
     name: "shop",
     color: "red",
@@ -23,7 +23,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 0,
+    id: 9,
     side: Sides.Bottom,
     name: "shop",
     color: "lightblue",
@@ -43,7 +43,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 0,
+    id: 19,
     side: Sides.Left,
     name: "shop",
     color: "orange",
@@ -63,7 +63,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 0,
+    id: 31,
     side: Sides.Right,
     name: "shop",
     color: "green",
@@ -83,7 +83,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 1,
+    id: 22,
     side: Sides.Top,
     name: "shop",
     color: "red",
@@ -103,7 +103,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 1,
+    id: 8,
     side: Sides.Bottom,
     name: "shop",
     color: "lightblue",
@@ -123,7 +123,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 1,
+    id: 18,
     side: Sides.Left,
     name: "shop",
     color: "orange",
@@ -143,7 +143,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 1,
+    id: 32,
     side: Sides.Right,
     name: "shop",
     color: "green",
@@ -163,7 +163,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 2,
+    id: 23,
     side: Sides.Top,
     name: "shop",
     color: "red",
@@ -183,7 +183,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 2,
+    id: 7,
     side: Sides.Bottom,
     name: "shop",
     color: "lightblue",
@@ -203,7 +203,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 2,
+    id: 17,
     side: Sides.Left,
     name: "shop",
     color: "orange",
@@ -223,7 +223,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 2,
+    id: 33,
     side: Sides.Right,
     name: "shop",
     color: "green",
@@ -243,7 +243,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 3,
+    id: 24,
     side: Sides.Top,
     name: "shop",
     color: "red",
@@ -263,7 +263,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 3,
+    id: 6,
     side: Sides.Bottom,
     name: "shop",
     color: "lightblue",
@@ -283,7 +283,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 3,
+    id: 16,
     side: Sides.Left,
     name: "shop",
     color: "orange",
@@ -303,7 +303,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 3,
+    id: 34,
     side: Sides.Right,
     name: "shop",
     color: "green",
@@ -323,7 +323,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 4,
+    id: 25,
     side: Sides.Top,
     name: "shop",
     color: "white",
@@ -343,7 +343,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 4,
+    id: 5,
     side: Sides.Bottom,
     name: "shop",
     color: "white",
@@ -363,7 +363,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 4,
+    id: 15,
     side: Sides.Left,
     name: "shop",
     color: "white",
@@ -383,7 +383,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 4,
+    id: 35,
     side: Sides.Right,
     name: "shop",
     color: "white",
@@ -403,7 +403,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 5,
+    id: 26,
     side: Sides.Top,
     name: "shop",
     color: "yellow",
@@ -423,7 +423,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 5,
+    id: 4,
     side: Sides.Bottom,
     name: "shop",
     color: "brown",
@@ -443,7 +443,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 5,
+    id: 14,
     side: Sides.Left,
     name: "shop",
     color: "pink",
@@ -463,7 +463,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 5,
+    id: 36,
     side: Sides.Right,
     name: "shop",
     color: "blue",
@@ -483,7 +483,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 6,
+    id: 27,
     side: Sides.Top,
     name: "shop",
     color: "yellow",
@@ -503,7 +503,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 6,
+    id: 3,
     side: Sides.Bottom,
     name: "shop",
     color: "brown",
@@ -523,7 +523,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 6,
+    id: 13,
     side: Sides.Left,
     name: "shop",
     color: "pink",
@@ -543,7 +543,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 6,
+    id: 37,
     side: Sides.Right,
     name: "shop",
     color: "blue",
@@ -563,7 +563,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 7,
+    id: 28,
     side: Sides.Top,
     name: "shop",
     color: "yellow",
@@ -583,7 +583,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 7,
+    id: 2,
     side: Sides.Bottom,
     name: "shop",
     color: "brown",
@@ -603,7 +603,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 7,
+    id: 12,
     side: Sides.Left,
     name: "shop",
     color: "pink",
@@ -623,7 +623,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 7,
+    id: 38,
     side: Sides.Right,
     name: "shop",
     color: "blue",
@@ -643,7 +643,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 8,
+    id: 29,
     side: Sides.Top,
     name: "shop",
     color: "yellow",
@@ -663,7 +663,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 8,
+    id: 1,
     side: Sides.Bottom,
     name: "shop",
     color: "brown",
@@ -683,7 +683,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 8,
+    id: 11,
     side: Sides.Left,
     name: "shop",
     color: "pink",
@@ -703,7 +703,7 @@ export const Shops: Shop[] = [
     mortgageValue: 0,
   },
   {
-    id: 8,
+    id: 39,
     side: Sides.Right,
     name: "shop",
     color: "blue",
