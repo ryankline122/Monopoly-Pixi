@@ -22,7 +22,7 @@ import { Player } from './player';
 
     gameContainer.addChild(board.container);
     board.container.addChild(player1.container);
-    // board.container.addChild(player2.container);
+    board.container.addChild(player2.container);
     app.stage.addChild(viewport);
 
     viewport
@@ -41,14 +41,14 @@ import { Player } from './player';
     window.addEventListener("keyup", () => {
       if (!player1.isMoving) {
         player1.nextSpace += 1;
-        // player2.nextSpace += 12;
+        player2.nextSpace += 1;
       }
     });
 
     app.ticker.add(() => {
       // On each frame
       player1.move();
-      // player2.move();
+      player2.move();
       // console.log(player1.container.x, player1.container.y);
 
     });

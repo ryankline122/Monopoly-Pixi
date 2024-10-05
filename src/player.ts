@@ -55,7 +55,7 @@ export class Player {
           // Determine movement based on current position
           if (this.currentSpace >= 0 && this.currentSpace + 1 < 11) {
             // Bottom
-            target = Spaces.at(this.currentSpace + 1).playerX + this.offsetX;
+            target = Spaces.at(this.currentSpace + 1).playerX - this.offsetX;
             if (this.playerContainer.x > target) {
               this.playerContainer.x -= this.moveX;
             } else {
@@ -64,7 +64,7 @@ export class Player {
             }
           } else if (this.currentSpace >= 20 && this.currentSpace + 1 < 31) {
             // Top
-            target = Spaces.at(this.currentSpace + 1).playerX + this.offsetX;
+            target = Spaces.at(this.currentSpace + 1).playerX - this.offsetX;
             if (this.playerContainer.x < target) {
               this.playerContainer.x += this.moveX;
             } else {
