@@ -9,5 +9,7 @@ export type Space = {
     x: number,
     y: number,
     height: number,
-    width: number
+    width: number,
+    playerX?: number
+    playerY?: number
 }
