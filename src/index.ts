@@ -2,7 +2,6 @@ import { Application, Container } from 'pixi.js';
 import { Viewport } from 'pixi-viewport';
 import { Board } from './board';
 import { Player } from './player';
-import { Spaces } from './constants/spaces';
 
 (async () => {
     const app = await setup();
@@ -38,12 +37,15 @@ import { Spaces } from './constants/spaces';
     viewport.addChild(gameContainer);
 
     window.addEventListener("keyup", () => {
-      player1.nextSpace++;
+      if (!player1.isMoving) {
+        player1.nextSpace += 12;
+      }
     });
 
     app.ticker.add(() => {
       // On each frame
-      player1.moveOne();
+      player1.move();
+      console.log(player1.currentSpace);
 
     });
 })();

@@ -24,67 +24,73 @@ export class Player {
         return this.playerContainer;
     }
 
-    public moveOne() {
-        /*
-            moves over one space
-            
-            Bottom --> -x
-            Left --> -y
-            Top --> +x
-            Right --> +y
-        */
-        // console.log(this.currentSpace, this.nextSpace);
+    public move() {
+        /**
+         * moves to nextSpace.
+         * Bottom --> -x
+         * Left --> -y
+         * Top --> +x
+         * Right --> +y
+         */
+        console.log(this.nextSpace);
+        if (this.nextSpace > 39) {
+            this.nextSpace -= 40;
+        }
 
-        if (this.currentSpace < this.nextSpace) {
-            let target = 0;
-            
-            if (this.nextSpace === 40) {
-                this.currentSpace = -1;
-                this.nextSpace = 0;
-            }
-
-            if (this.nextSpace > 0 && this.nextSpace < 11 ) {
-                // Bottom
-                target = Spaces.at(this.nextSpace).playerX;
-                
-                if (this.playerContainer.x > target) {
-                    this.playerContainer.x -= this.moveX;
-                } else {
-                    this.currentSpace++;
-                }
-            } else if (this.nextSpace > 20 && this.nextSpace < 31) {
-                // Top
-                target = Spaces.at(this.nextSpace).playerX;
-                
-                console.log("Top:", this.playerContainer.x, -target);
-
-                if (this.playerContainer.x < target) {
-                    this.playerContainer.x += this.moveX;
-                } else {
-                    this.currentSpace++;
-                }
-            } else if (this.nextSpace > 10 && this.nextSpace < 21) {
-                // Left
-                target = Spaces.at(this.nextSpace).playerY;
-                
-                if (this.playerContainer.y > target) {
-                    this.playerContainer.y -= this.moveY;
-                } else {
-                    this.currentSpace++;
-                }
+        if (this.currentSpace !== this.nextSpace) {
+          this.isMoving = true;
+          let target = 0;
+          
+          // Check if we need to wrap around the board
+          if (this.currentSpace >= 40) {
+            this.currentSpace = 0;
+          }
+    
+          // Determine movement based on current position
+          if (this.currentSpace >= 0 && this.currentSpace < 11) {
+            // Bottom
+            target = Spaces.at(this.currentSpace + 1).playerX;
+            if (this.playerContainer.x > target) {
+              this.playerContainer.x -= this.moveX;
             } else {
-                // Right
-                target = Spaces.at(this.nextSpace).playerY;
-                console.log(this.playerContainer.y,target);
-                
-                if (this.playerContainer.y < target) {
-                    this.playerContainer.y += this.moveY;
-                } else {
-                    this.currentSpace++;
-                }
+              this.currentSpace++;
+              this.isMoving = false;
             }
-       }
-    }
+          } else if (this.currentSpace >= 20 && this.currentSpace < 31) {
+            // Top
+            target = Spaces.at(this.currentSpace + 1).playerX;
+            if (this.playerContainer.x < target) {
+              this.playerContainer.x += this.moveX;
+            } else {
+              this.currentSpace++;
+              this.isMoving = false;
+            }
+          } else if (this.currentSpace >= 10 && this.currentSpace < 21) {
+            // Left
+            target = Spaces.at(this.currentSpace + 1).playerY;
+            if (this.playerContainer.y > target) {
+              this.playerContainer.y -= this.moveY;
+            } else {
+              this.currentSpace++;
+              this.isMoving = false;
+            }
+          } else {
+            // Right
+            if (this.currentSpace + 1 !== 40) {
+                target = Spaces.at(this.currentSpace + 1).playerY;
+            } else {
+                target = Spaces.at(0).playerY;
+            }
+
+            if (this.playerContainer.y < target) {
+              this.playerContainer.y += this.moveY;
+            } else {
+              this.currentSpace++;
+              this.isMoving = false;
+            }
+          }
+        }
+      }
 
     private createPlayer() {
         const playerContainer: Container = new Container();
@@ -105,6 +111,4 @@ export class Player {
 
         return playerContainer;
     }
-    
-
 }
