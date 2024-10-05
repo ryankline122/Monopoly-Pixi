@@ -1,11 +1,14 @@
 import { Application, Container } from 'pixi.js';
 import { Viewport } from 'pixi-viewport';
 import { Board } from './board';
+import { Player } from './player';
+import { Spaces } from './constants/spaces';
 
 (async () => {
     const app = await setup();
     const gameContainer = new Container();
     const board = new Board();
+    const player1 = new Player();
     const viewport = new Viewport({
       screenWidth: window.innerWidth,
       screenHeight: window.innerHeight,
@@ -18,6 +21,7 @@ import { Board } from './board';
     gameContainer.position.set(app.screen.width / 2, app.screen.height / 2);
 
     gameContainer.addChild(board.container);
+    board.container.addChild(player1.container);
     app.stage.addChild(viewport);
 
     viewport
@@ -33,8 +37,13 @@ import { Board } from './board';
 
     viewport.addChild(gameContainer);
 
+    window.addEventListener("keyup", () => {
+      player1.nextSpace += 1;
+    });
+
     app.ticker.add(() => {
       // On each frame
+      player1.move();
     });
 })();
 
