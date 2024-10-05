@@ -38,12 +38,13 @@ import { Spaces } from './constants/spaces';
     viewport.addChild(gameContainer);
 
     window.addEventListener("keyup", () => {
-      player1.nextSpace += 1;
+      player1.nextSpace++;
     });
 
     app.ticker.add(() => {
       // On each frame
-      player1.move();
+      player1.moveOne();
+
     });
 })();
 

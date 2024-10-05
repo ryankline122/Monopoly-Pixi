@@ -1,6 +1,12 @@
 import { Sides } from "../enums/sides";
 import { Space } from "../models/space";
 
+export const ShopWidthTopBottom = 72;
+export const ShopHeightTopBottom = 128;
+export const ShopWidthLeftRight = 128;
+export const ShopHeightLeftRight = 72;
+export const cornerHeightWidth = 128;
+
 export const Spaces: Space[] = [
     {
       index: 0,
