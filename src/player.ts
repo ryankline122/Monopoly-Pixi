@@ -1,18 +1,24 @@
-import { Container, Graphics } from "pixi.js";
-import { cornerHeightWidth, ShopHeightLeftRight, ShopWidthLeftRight, ShopWidthTopBottom, Spaces } from "./constants/spaces";
-import { Space } from "./models/space";
+import { ColorSource, Container, Graphics } from "pixi.js";
+import { Spaces } from "./constants/spaces";
+import { BASE_PLAYER_START_X, BASE_PLAYER_START_Y } from "./constants/player-positions";
 
 export class Player {
     private width: number = 16;
     private height: number = 16;
     private playerContainer: Container;
+    private offsetX: number;
+    private offsetY: number;
+    private color: ColorSource;
     public currentSpace: number;
     public nextSpace: number;
     public moveX: number;
     public moveY: number;
     public isMoving: boolean;
 
-    public constructor() {
+    public constructor(color: ColorSource, offsetX: number, offsetY: number) {
+        this.color = color;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
         this.currentSpace = 0;
         this.nextSpace = 0;
         this.moveX = 5;
@@ -32,7 +38,7 @@ export class Player {
          * Top --> +x
          * Right --> +y
          */
-        console.log(this.nextSpace);
+        console.log(this.currentSpace, this.nextSpace);
         if (this.nextSpace > 39) {
             this.nextSpace -= 40;
         }
@@ -47,27 +53,28 @@ export class Player {
           }
     
           // Determine movement based on current position
-          if (this.currentSpace >= 0 && this.currentSpace < 11) {
+          if (this.currentSpace >= 0 && this.currentSpace + 1 < 11) {
             // Bottom
-            target = Spaces.at(this.currentSpace + 1).playerX;
+            target = Spaces.at(this.currentSpace + 1).playerX + this.offsetX;
             if (this.playerContainer.x > target) {
               this.playerContainer.x -= this.moveX;
             } else {
               this.currentSpace++;
               this.isMoving = false;
             }
-          } else if (this.currentSpace >= 20 && this.currentSpace < 31) {
+          } else if (this.currentSpace >= 20 && this.currentSpace + 1 < 31) {
             // Top
-            target = Spaces.at(this.currentSpace + 1).playerX;
+            target = Spaces.at(this.currentSpace + 1).playerX + this.offsetX;
             if (this.playerContainer.x < target) {
               this.playerContainer.x += this.moveX;
             } else {
               this.currentSpace++;
               this.isMoving = false;
             }
-          } else if (this.currentSpace >= 10 && this.currentSpace < 21) {
+          } else if (this.currentSpace >= 10 && this.currentSpace + 1 < 21) {
             // Left
-            target = Spaces.at(this.currentSpace + 1).playerY;
+            target = Spaces.at(this.currentSpace + 1).playerY + this.offsetY; 
+            console.log("Target:",target);
             if (this.playerContainer.y > target) {
               this.playerContainer.y -= this.moveY;
             } else {
@@ -77,7 +84,7 @@ export class Player {
           } else {
             // Right
             if (this.currentSpace + 1 !== 40) {
-                target = Spaces.at(this.currentSpace + 1).playerY;
+                target = Spaces.at(this.currentSpace + 1).playerY + this.offsetY;
             } else {
                 target = Spaces.at(0).playerY;
             }
@@ -90,19 +97,20 @@ export class Player {
             }
           }
         }
+        this.isMoving = false;
       }
 
     private createPlayer() {
         const playerContainer: Container = new Container();
         const player = new Graphics()
             .rect(
-                Spaces[this.currentSpace].x + (Spaces[this.currentSpace].width / 2) - (this.width / 2),
-                Spaces[this.currentSpace].y + (Spaces[this.currentSpace].height / 2) - (this.height / 2), 
+                BASE_PLAYER_START_X + this.offsetX,
+                BASE_PLAYER_START_Y + this.offsetY,
                 this.width, 
                 this.height
             )
             .fill({
-                color: "purple",
+                color: this.color,
             });
         
         playerContainer.addChild(player);

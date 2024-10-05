@@ -28,7 +28,7 @@ export const Spaces: Space[] = [
       y: 776,
       height: 128,
       width: 72,
-      playerX: -75
+      playerX: -100
     },
     {
       index: 2,
@@ -39,7 +39,7 @@ export const Spaces: Space[] = [
       y: 776,
       height: 128,
       width: 72,
-      playerX: -145
+      playerX: -172
     },
     {
       index: 3,
@@ -50,7 +50,7 @@ export const Spaces: Space[] = [
       y: 776,
       height: 128,
       width: 72,
-      playerX: -220
+      playerX: -244
     },
     {
       index: 4,
@@ -61,7 +61,7 @@ export const Spaces: Space[] = [
       y: 776,
       height: 128,
       width: 72,
-      playerX: -290
+      playerX: -316
     },
     {
       index: 5,
@@ -72,7 +72,7 @@ export const Spaces: Space[] = [
       y: 776,
       height: 128,
       width: 72,
-      playerX: -360
+      playerX: -388
     },
     {
       index: 6,
@@ -83,7 +83,7 @@ export const Spaces: Space[] = [
       y: 776,
       height: 128,
       width: 72,
-      playerX: -435
+      playerX: -460
     },
     {
       index: 7,
@@ -94,7 +94,7 @@ export const Spaces: Space[] = [
       y: 776,
       height: 128,
       width: 72,
-      playerX: -505
+      playerX: -532
     },
     {
       index: 8,
@@ -105,7 +105,7 @@ export const Spaces: Space[] = [
       y: 776,
       height: 128,
       width: 72,
-      playerX: -580
+      playerX: -604
     },
     {
       index: 9,
@@ -116,7 +116,7 @@ export const Spaces: Space[] = [
       y: 776,
       height: 128,
       width: 72,
-      playerX: -650
+      playerX: -676
     },
     {
       index: 10,
@@ -138,7 +138,7 @@ export const Spaces: Space[] = [
       y: 704,
       height: 72,
       width: 128,
-      playerY: -75,
+      playerY: -100,
     },
     {
       index: 12,
@@ -149,7 +149,7 @@ export const Spaces: Space[] = [
       y: 632,
       height: 72,
       width: 128,
-      playerY: -145,
+      playerY: -172,
     },
     {
       index: 13,
@@ -160,7 +160,7 @@ export const Spaces: Space[] = [
       y: 560,
       height: 72,
       width: 128,
-      playerY: -220,
+      playerY: -244,
     },
     {
       index: 14,
@@ -171,7 +171,7 @@ export const Spaces: Space[] = [
       y: 488,
       height: 72,
       width: 128,
-      playerY: -290,
+      playerY: -316,
     },
     {
       index: 15,
@@ -182,7 +182,7 @@ export const Spaces: Space[] = [
       y: 416,
       height: 72,
       width: 128,
-      playerY: -360,
+      playerY: -388,
     },
     {
       index: 16,
@@ -193,7 +193,7 @@ export const Spaces: Space[] = [
       y: 344,
       height: 72,
       width: 128,
-      playerY: -435,
+      playerY: -460,
     },
     {
       index: 17,
@@ -204,7 +204,7 @@ export const Spaces: Space[] = [
       y: 272,
       height: 72,
       width: 128,
-      playerY: -505,
+      playerY: -532,
     },
     {
       index: 18,
@@ -215,7 +215,7 @@ export const Spaces: Space[] = [
       y: 200,
       height: 72,
       width: 128,
-      playerY: -580,
+      playerY: -604,
     },
     {
       index: 19,
@@ -226,7 +226,7 @@ export const Spaces: Space[] = [
       y: 128,
       height: 72,
       width: 128,
-      playerY: -650,
+      playerY: -676,
     },
     {
       index: 20,
@@ -248,7 +248,7 @@ export const Spaces: Space[] = [
       y: 0,
       height: 128,
       width: 72,
-      playerX: -650,
+      playerX: -676,
     },
     {
       index: 22,
@@ -259,7 +259,7 @@ export const Spaces: Space[] = [
       y: 0,
       height: 128,
       width: 72,
-      playerX: -580,
+      playerX: -604,
     },
     {
       index: 23,
@@ -270,7 +270,7 @@ export const Spaces: Space[] = [
       y: 0,
       height: 128,
       width: 72,
-      playerX: -505,
+      playerX: -532,
     },
     {
       index: 24,
@@ -281,7 +281,7 @@ export const Spaces: Space[] = [
       y: 0,
       height: 128,
       width: 72,
-      playerX: -435,
+      playerX: -460,
     },
     {
       index: 25,
@@ -292,7 +292,7 @@ export const Spaces: Space[] = [
       y: 0,
       height: 128,
       width: 72,
-      playerX: -360,
+      playerX: -388,
     },
     {
       index: 26,
@@ -303,7 +303,7 @@ export const Spaces: Space[] = [
       y: 0,
       height: 128,
       width: 72,
-      playerX: -290,
+      playerX: -316,
     },
     {
       index: 27,
@@ -314,7 +314,7 @@ export const Spaces: Space[] = [
       y: 0,
       height: 128,
       width: 72,
-      playerX: -220,
+      playerX: -244,
     },
     {
       index: 28,
@@ -325,7 +325,7 @@ export const Spaces: Space[] = [
       y: 0,
       height: 128,
       width: 72,
-      playerX: -145,
+      playerX: -172,
     },
     {
       index: 29,
@@ -336,7 +336,7 @@ export const Spaces: Space[] = [
       y: 0,
       height: 128,
       width: 72,
-      playerX: -75,
+      playerX: -100,
     },
     {
       index: 30,
@@ -358,7 +358,7 @@ export const Spaces: Space[] = [
       y: 128,
       height: 72,
       width: 128,
-      playerY: -650,
+      playerY: -676,
     },
     {
       index: 32,
@@ -369,7 +369,7 @@ export const Spaces: Space[] = [
       y: 200,
       height: 72,
       width: 128,
-      playerY: -580,
+      playerY: -604,
     },
     {
       index: 33,
@@ -380,7 +380,7 @@ export const Spaces: Space[] = [
       y: 272,
       height: 72,
       width: 128,
-      playerY: -505,
+      playerY: -532,
     },
     {
       index: 34,
@@ -391,7 +391,7 @@ export const Spaces: Space[] = [
       y: 344,
       height: 72,
       width: 128,
-      playerY: -435,
+      playerY: -460,
     },
     {
       index: 35,
@@ -402,7 +402,7 @@ export const Spaces: Space[] = [
       y: 416,
       height: 72,
       width: 128,
-      playerY: -360,
+      playerY: -388,
     },
     {
       index: 36,
@@ -413,7 +413,7 @@ export const Spaces: Space[] = [
       y: 488,
       height: 72,
       width: 128,
-      playerY: -290,
+      playerY: -316,
     },
     {
       index: 37,
@@ -424,7 +424,7 @@ export const Spaces: Space[] = [
       y: 560,
       height: 72,
       width: 128,
-      playerY: -220,
+      playerY: -244,
     },
     {
       index: 38,
@@ -435,7 +435,7 @@ export const Spaces: Space[] = [
       y: 632,
       height: 72,
       width: 128,
-      playerY: -145,
+      playerY: -172,
     },
     {
       index: 39,
@@ -446,6 +446,6 @@ export const Spaces: Space[] = [
       y: 704,
       height: 72,
       width: 128,
-      playerY: -75,
+      playerY: -100,
     },
 ];

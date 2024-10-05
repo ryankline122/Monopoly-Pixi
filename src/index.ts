@@ -7,7 +7,8 @@ import { Player } from './player';
     const app = await setup();
     const gameContainer = new Container();
     const board = new Board();
-    const player1 = new Player();
+    const player1 = new Player("purple", 0, 0);
+    const player2 = new Player("blue", 10, 10);
     const viewport = new Viewport({
       screenWidth: window.innerWidth,
       screenHeight: window.innerHeight,
@@ -21,6 +22,7 @@ import { Player } from './player';
 
     gameContainer.addChild(board.container);
     board.container.addChild(player1.container);
+    // board.container.addChild(player2.container);
     app.stage.addChild(viewport);
 
     viewport
@@ -38,14 +40,16 @@ import { Player } from './player';
 
     window.addEventListener("keyup", () => {
       if (!player1.isMoving) {
-        player1.nextSpace += 12;
+        player1.nextSpace += 1;
+        // player2.nextSpace += 12;
       }
     });
 
     app.ticker.add(() => {
       // On each frame
       player1.move();
-      console.log(player1.currentSpace);
+      // player2.move();
+      // console.log(player1.container.x, player1.container.y);
 
     });
 })();
