@@ -1,7 +1,7 @@
 import { Container, Graphics } from "pixi.js";
-import { Sides } from "./enums/sides";
-import { Space } from "./models/space";
-import { Spaces } from "./constants/spaces";
+import { Sides } from "../enums/sides";
+import { Space } from "../models/space";
+import { Spaces } from "../constants/spaces";
 
 export class Board {
   private width: number = 904;

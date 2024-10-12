@@ -1,6 +1,6 @@
 import { ColorSource, Container, Graphics } from "pixi.js";
-import { Spaces } from "./constants/spaces";
-import { BASE_PLAYER_START_X, BASE_PLAYER_START_Y } from "./constants/player-positions";
+import { Spaces } from "../constants/spaces";
+import { BASE_PLAYER_START_X, BASE_PLAYER_START_Y } from "../constants/player-positions";
 
 export class Player {
     private width: number = 16;
@@ -9,6 +9,7 @@ export class Player {
     private offsetX: number;
     private offsetY: number;
     private color: ColorSource;
+    
     public currentSpace: number;
     public nextSpace: number;
     public moveX: number;
@@ -38,7 +39,6 @@ export class Player {
          * Top --> +x
          * Right --> +y
          */
-        console.log(this.currentSpace, this.nextSpace);
         if (this.nextSpace > 39) {
             this.nextSpace -= 40;
         }
@@ -74,7 +74,6 @@ export class Player {
           } else if (this.currentSpace >= 10 && this.currentSpace + 1 < 21) {
             // Left
             target = Spaces.at(this.currentSpace + 1).playerY + this.offsetY; 
-            console.log("Target:",target);
             if (this.playerContainer.y > target) {
               this.playerContainer.y -= this.moveY;
             } else {
