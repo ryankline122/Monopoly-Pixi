@@ -52,7 +52,6 @@ export class Player {
             this.currentSpace = 0;
           }
     
-          // Determine movement based on current position
           if (this.currentSpace >= 0 && this.currentSpace + 1 < 11) {
             // Bottom
             target = Spaces.at(this.currentSpace + 1).playerX - this.offsetX;

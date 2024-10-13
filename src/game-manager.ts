@@ -14,6 +14,8 @@ export class GameManager {
         console.log(`rolled a ${value}`);
 
         this.players[this.currentPlayer].nextSpace += value;
+
+        return value;
     }
 
 }

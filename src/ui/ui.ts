@@ -10,8 +10,8 @@ export class UI {
     constructor(width: number, height: number, gameManager: GameManager) {
         this.screenWidth = width;
         this.screenHeight = height;
-        this.uiContainer = this.createUI();
         this.gameManager = gameManager;
+        this.uiContainer = this.createUI();
     }
 
     public get container(): Container {
@@ -20,17 +20,28 @@ export class UI {
 
     private createUI(): Container {
         const container: Container = new Container();
+        const rollText: Text = new Text({
+            text: "--",
+            x: this.screenWidth - 80,
+            y: this.screenHeight - 120,
+            style: {
+                fill: '#ffffff',
+                fontSize: 32
+            }
+        });
+        rollText.label = "RollText";
         const rollBtn = this.createButton(
             "Roll", 
             this.screenWidth - 120, 
             this.screenHeight - 60,
             () => {
                 console.log("Roll button clicked!");
-                this.gameManager.roll();
+                rollText.text = this.gameManager.roll();
             }
         );
     
         container.addChild(rollBtn);
+        container.addChild(rollText);
 
         return container;
     }
@@ -71,6 +82,10 @@ export class UI {
         this.uiContainer.getChildByLabel("Roll").position.set(
             this.screenWidth - 120,
             this.screenHeight - 60,
+        );
+        this.uiContainer.getChildByLabel("RollText").position.set(
+            this.screenWidth - 80,
+            this.screenHeight - 120,
         );
     }
 }

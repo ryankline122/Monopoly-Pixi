@@ -5,6 +5,10 @@
 * Build the application: `npm run build`
 * Run dev server: `npm run start`
 
-## To-do:
-* Add UI for rolling dice, buying/selling/mortgaging properies, etc.
-* Build out an api to manage game state
+## To-do (v1):
+* Take turns between players
+* Add player data to GUI (current player, funds, dice roll value)
+* change black background to something better
+* Start page
+* Add property data
+* Implement property buying
