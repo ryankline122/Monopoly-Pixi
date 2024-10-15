@@ -2,7 +2,7 @@ import { Player } from "./ui/player";
 
 export class GameManager {
     private players: Player[];
-    private currentPlayer = 0;
+    private currentPlayer = 1;
 
     public constructor(players: Player[]) {
         this.players = players;
@@ -11,11 +11,14 @@ export class GameManager {
     public roll() {
         const value: number = Math.floor(Math.random() * (13 - 2) + 2);
 
-        console.log(`rolled a ${value}`);
+        this.players[this.currentPlayer -1].nextSpace += value;
 
-        this.players[this.currentPlayer].nextSpace += value;
-
+        this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
         return value;
+    }
+
+    public getCurrentPlayer(): number {
+        return this.currentPlayer;
     }
 
 }

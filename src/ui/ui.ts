@@ -20,6 +20,7 @@ export class UI {
 
     private createUI(): Container {
         const container: Container = new Container();
+
         const rollText: Text = new Text({
             text: "--",
             x: this.screenWidth - 80,
@@ -30,6 +31,18 @@ export class UI {
             }
         });
         rollText.label = "RollText";
+
+        const currentPlayerText: Text = new Text({
+            text: `Player ${this.gameManager.getCurrentPlayer()}'s turn`,
+            x: this.screenWidth / 2 -120,
+            y: 0,
+            style: {
+                fill: '#ffffff',
+                fontSize: 32
+            }
+        });
+        currentPlayerText.label = "CurrentPlayerText";
+
         const rollBtn = this.createButton(
             "Roll", 
             this.screenWidth - 120, 
@@ -42,6 +55,8 @@ export class UI {
     
         container.addChild(rollBtn);
         container.addChild(rollText);
+        container.addChild(currentPlayerText);
+
 
         return container;
     }
@@ -87,5 +102,12 @@ export class UI {
             this.screenWidth - 80,
             this.screenHeight - 120,
         );
+    }
+
+    public update() {
+        const tmp = this.uiContainer.getChildByLabel("CurrentPlayerText");
+        if (tmp instanceof Text) {
+            tmp.text = `Player ${this.gameManager.getCurrentPlayer()}'s turn`;
+        }
     }
 }

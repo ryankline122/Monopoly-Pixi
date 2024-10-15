@@ -45,6 +45,7 @@ import { GameManager } from './game-manager';
 
     app.ticker.add(() => {
         // On each frame
+        ui.update();
         player1.move();
         player2.move();
     });
