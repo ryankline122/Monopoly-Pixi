@@ -10,7 +10,13 @@ import { GameManager } from './game-manager';
     const gameContainer = new Container();
     const player1 = new Player("purple", 0, 0);
     const player2 = new Player("blue", 10, 10);
-    const gameManager = new GameManager([player1, player2]);
+    const player3 = new Player("red", -10, 5);
+    const players = [
+        player1,
+        player2,
+        player3,
+    ]
+    const gameManager = new GameManager(players);
     const ui = new UI(app.screen.width, app.screen.height, gameManager);
     const board = new Board();
 
@@ -26,6 +32,7 @@ import { GameManager } from './game-manager';
     gameContainer.addChild(board.container);
     board.container.addChild(player1.container);
     board.container.addChild(player2.container);
+    board.container.addChild(player3.container);
 
     app.stage.addChild(viewport);
     app.stage.addChild(ui.container);
@@ -46,8 +53,8 @@ import { GameManager } from './game-manager';
     app.ticker.add(() => {
         // On each frame
         ui.update();
-        player1.move();
-        player2.move();
+
+        players.forEach((p) => {p.move()});
     });
 
     // Handle window resizing

@@ -34,11 +34,11 @@ export class UI {
 
         const currentPlayerText: Text = new Text({
             text: `Player ${this.gameManager.getCurrentPlayer()}'s turn`,
-            x: this.screenWidth / 2 -120,
-            y: 0,
+            x: this.screenWidth - 120,
+            y: this.screenHeight - 150,
             style: {
                 fill: '#ffffff',
-                fontSize: 32
+                fontSize: 16 
             }
         });
         currentPlayerText.label = "CurrentPlayerText";

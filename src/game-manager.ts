@@ -2,7 +2,7 @@ import { Player } from "./ui/player";
 
 export class GameManager {
     private players: Player[];
-    private currentPlayer = 1;
+    private currentPlayer = 0;
 
     public constructor(players: Player[]) {
         this.players = players;
@@ -11,14 +11,19 @@ export class GameManager {
     public roll() {
         const value: number = Math.floor(Math.random() * (13 - 2) + 2);
 
-        this.players[this.currentPlayer -1].nextSpace += value;
+        this.players[this.currentPlayer].nextSpace += value;
 
-        this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
+        if (this.currentPlayer + 1 === this.players.length) {
+            this.currentPlayer = 0;
+        } else {
+            this.currentPlayer++;
+        }
+
         return value;
     }
 
     public getCurrentPlayer(): number {
-        return this.currentPlayer;
+        return this.currentPlayer + 1;
     }
 
 }
