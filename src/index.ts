@@ -28,6 +28,25 @@ import { GameManager } from './game-manager';
         events: app.renderer.events
     });
 
+    const ws = new WebSocket('ws://localhost:8080');
+    
+    ws.onopen = () => {
+        console.log('Connected to server');
+        ws.send('Hello from game client');
+    };
+
+    ws.onmessage = (event) => {
+        console.log('Received:', event.data);
+    };
+
+    ws.onerror = (error) => {
+        console.error('WebSocket error:', error);
+    };
+
+    ws.onclose = () => {
+        console.log('Disconnected from server');
+    };
+
     gameContainer.position.set(app.screen.width / 2, app.screen.height / 2);
     gameContainer.addChild(board.container);
     board.container.addChild(player1.container);
