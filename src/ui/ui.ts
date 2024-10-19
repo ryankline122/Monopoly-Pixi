@@ -102,6 +102,10 @@ export class UI {
             this.screenWidth - 80,
             this.screenHeight - 120,
         );
+        this.uiContainer.getChildByLabel("CurrentPlayerText").position.set(
+            this.screenWidth - 120,
+            this.screenHeight - 150,
+        );
     }
 
     public update() {

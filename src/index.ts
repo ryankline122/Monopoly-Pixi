@@ -4,18 +4,16 @@ import { Board } from './ui/board';
 import { Player } from './ui/player';
 import { UI } from './ui/ui';
 import { GameManager } from './game-manager';
+import { ServerResponse } from './dto/server-response';
+import { PlayerInfo } from './dto/player-info';
 
 (async () => {
     const app = await setup();
     const gameContainer = new Container();
-    const player1 = new Player("purple", 0, 0);
-    const player2 = new Player("blue", 10, 10);
-    const player3 = new Player("red", -10, 5);
-    const players = [
-        player1,
-        player2,
-        player3,
-    ]
+    // const player1 = new Player("purple", 0, 0);
+    // const player2 = new Player("blue", 10, 10);
+    // const player3 = new Player("red", -10, 5);
+    const players: Player[] = [];
     const gameManager = new GameManager(players);
     const ui = new UI(app.screen.width, app.screen.height, gameManager);
     const board = new Board();
@@ -36,7 +34,46 @@ import { GameManager } from './game-manager';
     };
 
     ws.onmessage = (event) => {
-        console.log('Received:', event.data);
+        const response: ServerResponse = JSON.parse(event.data);
+        if (response.Initial) {
+            console.log("Initial response", response);
+            const playerInfo: PlayerInfo = response.PlayerInfo[response.PlayerNumber - 1];
+            const player: Player = new Player(
+                playerInfo.PlayerNumber,
+                playerInfo.Color, 
+                playerInfo.X,
+                playerInfo.Y,
+            );
+            players.push(player);
+            board.container.addChild(player.container);
+        } else {
+            console.log("Server response", response);
+            const connectedPlayers = response.PlayerInfo.length;
+            if (connectedPlayers !== players.length) {
+                if (connectedPlayers > players.length) {
+                    // Add new player(s) to the board
+                    const currentPlayerNumbers = new Set(players.map(p => p.getPlayerNumber()));
+                    const newPlayers: PlayerInfo[] = response.PlayerInfo.filter((p) => {
+                        return !currentPlayerNumbers.has(p.PlayerNumber);
+                    });
+
+                    newPlayers.forEach((p) => {
+                        const player: Player = new Player(
+                            p.PlayerNumber,
+                            p.Color, 
+                            p.X,
+                            p.Y,
+                        );
+                        players.push(player);
+                        board.container.addChild(player.container);
+                    });
+
+                } else if (connectedPlayers < players.length) {
+                    // Remove disconnected players from the board
+
+                }
+            }
+        }
     };
 
     ws.onerror = (error) => {
@@ -49,9 +86,9 @@ import { GameManager } from './game-manager';
 
     gameContainer.position.set(app.screen.width / 2, app.screen.height / 2);
     gameContainer.addChild(board.container);
-    board.container.addChild(player1.container);
-    board.container.addChild(player2.container);
-    board.container.addChild(player3.container);
+    // board.container.addChild(player1.container);
+    // board.container.addChild(player2.container);
+    // board.container.addChild(player3.container);
 
     app.stage.addChild(viewport);
     app.stage.addChild(ui.container);
@@ -73,7 +110,7 @@ import { GameManager } from './game-manager';
         // On each frame
         ui.update();
 
-        players.forEach((p) => {p.move()});
+        players.forEach((p) => { p.move(); });
     });
 
     // Handle window resizing

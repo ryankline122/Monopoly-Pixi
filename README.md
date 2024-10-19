@@ -6,9 +6,6 @@
 * Run dev server: `npm run start`
 
 ## To-do (v1):
-* Take turns between players
-* Add player data to GUI (current player, funds, dice roll value)
-* change black background to something better
-* Start page
-* Add property data
-* Implement property buying
+* Add pawns to the board as players connect to the server
+    ex. Client 1 connects --> add the red pawn, etc.
+* refreshing the page should close the connection on the client side

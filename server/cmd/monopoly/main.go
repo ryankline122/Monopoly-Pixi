@@ -9,6 +9,7 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/ryankline122/monopoly-pixi/internal/clients"
 	"github.com/ryankline122/monopoly-pixi/internal/monopoly"
+	"github.com/ryankline122/monopoly-pixi/internal/dto"
 )
 
 type webSocketHandler struct {
@@ -23,11 +24,29 @@ func (wsh webSocketHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     }
 
     playerNumber := len(clients.Clients) + 1
-    client := clients.Client{ID: strconv.Itoa(playerNumber), Conn: conn}
-    newPlayer := monopoly.Player{Number: playerNumber}
+    newPlayer := monopoly.PlayerInfo {
+        PlayerNumber: playerNumber,
+        Color: "purple",
+        X: 0,
+        Y: 0,
+    }
 
+    client := clients.Client{ID: strconv.Itoa(playerNumber), Conn: conn}
     clients.AddClient(&client)
+
     monopoly.State.Players = append(monopoly.State.Players, newPlayer)
+    
+    resp := dto.Response{
+        Initial: true,
+        PlayerNumber: playerNumber,
+        PlayerInfo: monopoly.State.Players,
+    }
+
+    err = conn.WriteJSON(resp)
+    if err != nil {
+        log.Printf("Error %s when sending message to client", err)
+        return
+    }
 
     defer func() {
         log.Println("closing connection")
@@ -43,20 +62,24 @@ func (wsh webSocketHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
             return
         }
 
-        if messageType == websocket.BinaryMessage {
-            err = conn.WriteMessage(websocket.TextMessage, []byte("server doesn't support binary messages")) 
+        if messageType != 1 {
+            err = conn.WriteMessage(websocket.TextMessage, []byte("Unsupported message type")) 
             if err != nil {
                 log.Printf("Error %s when sending message to client", err)
             }
             
             return
         }
-
-        log.Printf("Recieved message %s", string(message))
+        log.Printf("Recieved message %s, message type: %d", string(message), messageType)
         
         for {
-            log.Printf("sending %s to client", monopoly.State)
-            err = conn.WriteJSON(monopoly.State)
+            resp = dto.Response{
+                Initial: false,
+                PlayerNumber: playerNumber,
+                PlayerInfo: monopoly.State.Players,
+            }
+            log.Printf("sending %s to client", resp)
+            err = conn.WriteJSON(resp)
             if err != nil {
                 log.Printf("Error %s when sending message to client", err)
                 return

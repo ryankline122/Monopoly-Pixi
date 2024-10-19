@@ -9,6 +9,7 @@ export class Player {
     private offsetX: number;
     private offsetY: number;
     private color: ColorSource;
+    private number: number;
     
     public currentSpace: number;
     public nextSpace: number;
@@ -16,7 +17,13 @@ export class Player {
     public moveY: number;
     public isMoving: boolean;
 
-    public constructor(color: ColorSource, offsetX: number, offsetY: number) {
+    public constructor(
+      number: number, 
+      color: ColorSource, 
+      offsetX: number, 
+      offsetY: number
+    ) {
+        this.number = number;
         this.color = color;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
@@ -28,7 +35,11 @@ export class Player {
     };
 
     public get container(): Container {
-        return this.playerContainer;
+      return this.playerContainer;
+    }
+
+    public getPlayerNumber(): number {
+      return this.number;
     }
 
     public move() {

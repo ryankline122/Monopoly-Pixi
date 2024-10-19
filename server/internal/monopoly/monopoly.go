@@ -1,12 +1,15 @@
 package monopoly
 
-type Player struct {
-    Number int
+type PlayerInfo struct {
+	PlayerNumber int
+	Color string
+	X float32
+	Y float32
 }
 
 type Gamestate struct {
     CurrentPlayer int
-    Players []Player
+    Players []PlayerInfo
 }
 
-var State = Gamestate{CurrentPlayer: 1, Players: make([]Player, 0)}
+var State = Gamestate{CurrentPlayer: 1, Players: make([]PlayerInfo, 0)}
