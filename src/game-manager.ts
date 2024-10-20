@@ -1,29 +1,35 @@
+import { Actions } from "./constants/actions";
+import { ClientRequest } from "./dto/client-request";
 import { Player } from "./ui/player";
 
 export class GameManager {
-    private players: Player[];
+    private players: Set<Player>;
+    private websocket: WebSocket;
     private currentPlayer = 0;
+    private lastRoll: number = 0;
 
-    public constructor(players: Player[]) {
+    public constructor(websocket: WebSocket, players: Set<Player>){
         this.players = players;
+        this.websocket = websocket;
     }
 
     public roll() {
-        const value: number = Math.floor(Math.random() * (13 - 2) + 2);
-
-        this.players[this.currentPlayer].nextSpace += value;
-
-        if (this.currentPlayer + 1 === this.players.length) {
-            this.currentPlayer = 0;
-        } else {
-            this.currentPlayer++;
-        }
-
-        return value;
+        const req: ClientRequest = {
+            action: Actions.Roll,
+        };
+        this.websocket.send(JSON.stringify(req));
     }
 
     public getCurrentPlayer(): number {
         return this.currentPlayer + 1;
+    }
+
+    public setLastRoll(value: number) {
+        this.lastRoll = value;
+    }
+
+    public getLastRollValue(): number {
+        return this.lastRoll;
     }
 
 }

@@ -8,8 +8,8 @@ import (
 
 	"github.com/gorilla/websocket"
 	"github.com/ryankline122/monopoly-pixi/internal/clients"
-	"github.com/ryankline122/monopoly-pixi/internal/monopoly"
 	"github.com/ryankline122/monopoly-pixi/internal/dto"
+	"github.com/ryankline122/monopoly-pixi/internal/monopoly"
 )
 
 type webSocketHandler struct {
@@ -34,12 +34,16 @@ func (wsh webSocketHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     client := clients.Client{ID: strconv.Itoa(playerNumber), Conn: conn}
     clients.AddClient(&client)
 
+    if monopoly.State.CurrentPlayer == (monopoly.PlayerInfo{}) {
+        monopoly.State.CurrentPlayer = newPlayer
+    }
+
     monopoly.State.Players = append(monopoly.State.Players, newPlayer)
     
     resp := dto.Response{
         Initial: true,
         PlayerNumber: playerNumber,
-        PlayerInfo: monopoly.State.Players,
+        Gamestate: monopoly.State,
     }
 
     err = conn.WriteJSON(resp)
@@ -55,7 +59,7 @@ func (wsh webSocketHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     }()
 
     for {
-        messageType, message, err := conn.ReadMessage()
+        messageType, _, err := conn.ReadMessage()
 
         if err != nil {
             log.Printf("Error %s when reading message from client", err)
@@ -70,15 +74,34 @@ func (wsh webSocketHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
             
             return
         }
-        log.Printf("Recieved message %s, message type: %d", string(message), messageType)
+        // log.Printf("Recieved message %s, message type: %d", string(message), messageType)
+
         
         for {
+            var req dto.ClientResponse = dto.ClientResponse{};
+            err = conn.ReadJSON(&req)
+
+            if err != nil {
+                log.Printf("Error %s when reading client request", err)
+            }
+            log.Printf("Recieved request: %s", req)
+
+            if req == (dto.ClientResponse{}) {
+                // Handle requests
+                switch req.Action {
+                case dto.Roll:
+                    monopoly.Roll(playerNumber)
+                default:
+                    log.Printf("Unknown action: %d", req.Action)
+                }
+
+            }
             resp = dto.Response{
                 Initial: false,
                 PlayerNumber: playerNumber,
-                PlayerInfo: monopoly.State.Players,
+                Gamestate: monopoly.State,
             }
-            log.Printf("sending %s to client", resp)
+            // log.Printf("sending %s to client", resp)
             err = conn.WriteJSON(resp)
             if err != nil {
                 log.Printf("Error %s when sending message to client", err)

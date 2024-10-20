@@ -7,7 +7,7 @@ import (
 type Response struct {
 	Initial bool
 	PlayerNumber int
-	PlayerInfo []monopoly.PlayerInfo
+	Gamestate monopoly.Gamestate
 }
 
 

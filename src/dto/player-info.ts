@@ -3,4 +3,5 @@ export type PlayerInfo = {
     Color: string
     X: number
     Y: number
+    NextSpace: number
 }

@@ -49,7 +49,8 @@ export class UI {
             this.screenHeight - 60,
             () => {
                 console.log("Roll button clicked!");
-                rollText.text = this.gameManager.roll();
+                this.gameManager.roll();
+                rollText.text = this.gameManager.getLastRollValue();
             }
         );
     
@@ -109,9 +110,15 @@ export class UI {
     }
 
     public update() {
-        const tmp = this.uiContainer.getChildByLabel("CurrentPlayerText");
-        if (tmp instanceof Text) {
-            tmp.text = `Player ${this.gameManager.getCurrentPlayer()}'s turn`;
+        const currentPlayerText = this.uiContainer.getChildByLabel("CurrentPlayerText");
+        if (currentPlayerText instanceof Text) {
+            currentPlayerText.text = `Player ${this.gameManager.getCurrentPlayer()}'s turn`;
+        }
+
+        const lastRollText = this.uiContainer.getChildByLabel("RollText");
+        if (lastRollText instanceof Text) {
+            const value = this.gameManager.getLastRollValue();
+            lastRollText.text = value > 0 ? `${value}` : `--`;
         }
     }
 }

@@ -1,7 +1,7 @@
-import { PlayerInfo } from "./player-info";
+import { Gamestate } from "./gamestate";
 
 export type ServerResponse  = {
     Initial: boolean;
     PlayerNumber: number;
-    PlayerInfo: PlayerInfo[];
+    Gamestate: Gamestate;
 }
