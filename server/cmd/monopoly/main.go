@@ -78,7 +78,7 @@ func (wsh webSocketHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
         
         for {
-            var req dto.ClientResponse = dto.ClientResponse{};
+            var req dto.ClientRequest = dto.ClientRequest{};
             err = conn.ReadJSON(&req)
 
             if err != nil {
@@ -86,7 +86,7 @@ func (wsh webSocketHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
             }
             log.Printf("Recieved request: %s", req)
 
-            if req == (dto.ClientResponse{}) {
+            if req == (dto.ClientRequest{}) {
                 // Handle requests
                 switch req.Action {
                 case dto.Roll:

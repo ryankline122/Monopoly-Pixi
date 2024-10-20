@@ -26,11 +26,12 @@ func Roll(playerNumber int) {
 		State.LastRoll = value
 		State.CurrentPlayer.NextSpace += value
 		State.Players[State.CurrentPlayer.PlayerNumber - 1] = State.CurrentPlayer
-		EndTurn(playerNumber)
+
+		endTurn(playerNumber)
 	}
 }
 
-func EndTurn(playerNumber int) {
+func endTurn(playerNumber int) {
 	if State.CurrentPlayer.PlayerNumber + 1 > len(State.Players) {
 		State.CurrentPlayer = State.Players[0]
 	} else {

@@ -18,13 +18,3 @@ func AddClient(client *Client) {
 func RemoveClient(clientID string) {
     delete(Clients, clientID)
 }
-
-func GetClientID(conn *websocket.Conn) string {
-    for id, client := range Clients {
-        if client.Conn == conn {
-            return id
-        }
-    }
-
-    return ""
-}

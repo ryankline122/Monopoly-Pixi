@@ -4,6 +4,6 @@ const (
 	Roll int = 0
 )
 
-type ClientResponse struct {
+type ClientRequest struct {
 	Action int
 }

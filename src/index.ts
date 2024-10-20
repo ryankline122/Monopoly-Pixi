@@ -11,6 +11,9 @@ import { PlayerInfo } from './dto/player-info';
     const app = await setup();
     const gameContainer = new Container();
     const players: Set<Player> = new Set<Player>();
+    // const player1 = new Player("purple", 0, 0);
+    // const player2 = new Player("blue", 10, 10);
+    // const player3 = new Player("red", -10, 5);
     const ws = new WebSocket('ws://localhost:8080');
     
     ws.onopen = () => {
@@ -37,6 +40,7 @@ import { PlayerInfo } from './dto/player-info';
             const connectedPlayers = response.Gamestate.Players.length;
             const currentPlayerNumbers = new Set<number>();
             players.forEach((p) => { currentPlayerNumbers.add(p.getPlayerNumber());});
+
             if (connectedPlayers !== players.size) {
                 if (connectedPlayers > players.size) {
                     // Add new player(s) to the board
@@ -79,9 +83,6 @@ import { PlayerInfo } from './dto/player-info';
     ws.onclose = () => {
         console.log('Disconnected from server');
     };
-    // const player1 = new Player("purple", 0, 0);
-    // const player2 = new Player("blue", 10, 10);
-    // const player3 = new Player("red", -10, 5);
     const gameManager: GameManager = new GameManager(ws, players);
     const ui = new UI(app.screen.width, app.screen.height, gameManager);
     const board = new Board();
@@ -97,9 +98,6 @@ import { PlayerInfo } from './dto/player-info';
 
     gameContainer.position.set(app.screen.width / 2, app.screen.height / 2);
     gameContainer.addChild(board.container);
-    // board.container.addChild(player1.container);
-    // board.container.addChild(player2.container);
-    // board.container.addChild(player3.container);
 
     app.stage.addChild(viewport);
     app.stage.addChild(ui.container);
